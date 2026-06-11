@@ -1,0 +1,7 @@
+# Example deployment headers for WebMCP / origin-isolated testing.
+# Netlify-compatible _headers. Adapt to Cloudflare Pages/Vercel/your server.
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Permissions-Policy: tools=(self)
+  Origin-Agent-Cluster: ?1

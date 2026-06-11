@@ -1,0 +1,11 @@
+{
+  "app": "PitchWatch",
+  "version": "1.2.0-agent-phase4",
+  "note": "Runtime canonical action list is available at window.PitchWatchAgent.actions().",
+  "safetyLevels": [
+    "read-only",
+    "draft",
+    "apply-with-confirmation",
+    "dangerous-live-confirmation"
+  ]
+}

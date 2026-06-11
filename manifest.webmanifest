@@ -1,0 +1,56 @@
+{
+  "name": "PitchWatch",
+  "short_name": "PitchWatch",
+  "description": "Flowchart-driven pitch timer with local-first PWA, custom alarms, run history, and an Agent Access Layer for AI-assisted preparation.",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "theme_color": "#F4F2EC",
+  "background_color": "#F4F2EC",
+  "categories": [
+    "productivity",
+    "business",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./pitchwatch-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New timer",
+      "short_name": "New",
+      "url": "./index.html#new",
+      "description": "Create a PitchWatch timer"
+    },
+    {
+      "name": "Agent guide",
+      "short_name": "Agent",
+      "url": "./docs/agent-actions.html",
+      "description": "Read the Agent Access Layer guide"
+    }
+  ]
+}

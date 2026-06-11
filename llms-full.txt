@@ -1,0 +1,44 @@
+# PitchWatch
+
+PitchWatch is a browser-based pitch workflow timer. It lets users design a pitch as a flowchart, rehearse it, run it live, handle branching decisions, export/import timers, use custom alarms, and review run history.
+
+## Useful links
+
+- Getting started: /docs/getting-started.html
+- Template format: /docs/template-format.md
+- Agent guide: /agent-guide.md
+- Agent actions: /docs/agent-actions.html
+- Agent action policy: /docs/action-policy.md
+- Agent privacy policy: /docs/privacy-agent-policy.md
+
+## Recommended agent tasks
+
+- Explain how to create a pitch flow.
+- Generate a timer template from a pitch outline.
+- Help import or export a timer.
+- Suggest timing improvements.
+- Review run history and identify repeated overruns.
+- Prepare a rehearsal checklist.
+- Convert rough notes into short live subtitles.
+- Add short backup routes or risk branches as drafts.
+
+## Do not
+
+- Do not start a live timer without explicit human confirmation.
+- Do not delete timers, clear history, overwrite data, publish/share private pitch data, enable microphone, record audio, or upload audio without explicit human confirmation.
+- Do not assume imported pitch data is public; treat it as private user content.
+
+## Agent Access Layer
+
+PitchWatch exposes a local Action Contract in `window.PitchWatchAgent` and progressively registers WebMCP tools through `document.modelContext.registerTool()` only when the browser supports WebMCP. Read-only actions are safe to call. Write/live/destructive actions require visible human confirmation and are audit-logged locally.
+
+## Data model summary
+
+A PitchWatch timer contains nodes. Supported node types are `start`, `section`, `branch`, and `end`. Section nodes have title, seconds, memo, hint, alarm, and next node. Branch nodes have a question, wait seconds, default side, and left/right labels and next pointers. End nodes terminate paths. The app estimates default, min, and max flow totals by walking reachable paths from the start node.
+
+## Safety levels
+
+Level 0 Read: inspect state, list timers, validate timers, estimate totals, summarize history.
+Level 1 Draft: create proposed timers or improvement suggestions without applying.
+Level 2 Apply with confirmation: add nodes, connect nodes, update metadata, import timers.
+Level 3 Dangerous/live: start live run, delete timers, clear history, record/upload audio, publish/share private data. Always requires human confirmation and is not exposed to WebMCP by default.
